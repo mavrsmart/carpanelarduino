@@ -104,7 +104,7 @@ TCNT1 = 0;
   attachInterrupt(1, speedtick, CHANGE);
   interrupts();
   // put your setup code here, to run once:
-  Serial.begin(57600);
+  Serial.begin(9600);
 
   pinMode(rxPin, INPUT);
   pinMode(txPin, OUTPUT);
@@ -280,21 +280,33 @@ if (renew&&renew1) {
 
   
 //Serial.print("Start\r\n");
-Serial.print("Lat: " + lat_s + lat +"\r\n");
-Serial.print("Lon: " + lon_s + lon + "\r\n");
-Serial.print("Tim: " + time + "\r\n");
-Serial.print("Dat: " + date + "\r\n");
-Serial.print("Qty: " + qual + "\r\n");
-Serial.print("Sat: " + sats+"\r\n");
-Serial.print("SpdGPS: " + speed+"\r\n");
+//"Lat: " +
+Serial.print( lat_s + lat +";");
+//"Lon: " +
+Serial.print( lon_s + lon + ";");
+//"Tim: " +
+Serial.print( time + ";");
+//"Date: " +
+Serial.print( date + ";");
+//"Qty: " +
+Serial.print( qual + ";");
+//"Sat: " +
+Serial.print( sats+";");
+//"SpdGPS: " +
+Serial.print( speed+";");
 speeddat=String((1/((tim*0.000016)*6))*(3600/1000));
-Serial.print("SpdDat: " + speeddat+"\r\n");
-Serial.print("Temp: ");
+//"SpdDat: " +
+Serial.print( speeddat+";");
+//Serial.print("Temp: ");
 temp=sensors.getTempCByIndex(0);
-Serial.println(temp);  
-Serial.print("Param klap temp: "+String(param_klap_temp,DEC)+"\r\n");
-Serial.print("Param Max klap temp: "+String(param_max_klap_temp,DEC)+"\r\n");
-Serial.print("PWM klap temp: "+String(pwmklapval,DEC)+"\r\n");
+Serial.print(temp);  
+Serial.print(";");  
+//"Param klap temp: "+
+Serial.print(String(param_klap_temp,DEC)+";");
+//"Param Max klap temp: "+
+Serial.print(String(param_max_klap_temp,DEC)+";");
+//"PWM klap temp: "+
+Serial.print(String(pwmklapval,DEC)+"\r\n");
 
 //Serial.print("--------------------\r\n");
 renew = false;
